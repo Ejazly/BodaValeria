@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Valeria & Andrés</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Marcellus&display=swap">
+<style>
+/* Layout: una sola columna estrecha como tarjeta de papel, secciones con arcos de hacienda queretana; un solo momento fuerte: la cuenta regresiva */
+:root{
+  --paper:#EEF0E9;      /* papel verde piedra */
+  --paper-2:#E3E7DC;
+  --ink:#1E2A21;        /* verde olivo profundo */
+  --ink-soft:#4C5A4E;
+  --gold:#A9864E;       /* dorado viejo */
+  --blush:#D9B8A8;
+  --line:#C9CFC0;
+  --f-script:"Pinyon Script","Apple Chancery",cursive;
+  --f-display:"Bodoni Moda","Didot","Times New Roman",serif;
+  --f-label:"Marcellus","Optima","Palatino",serif;
+  color-scheme:light;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-display);font-size:17px;line-height:1.65;margin:0}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:72px;border-top:1px solid var(--line)}
+.label{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.28em;font-size:12px;color:var(--gold)}
+h2{font-family:var(--f-script);font-weight:400;font-size:clamp(44px,11vw,62px);line-height:1;margin:.25em 0 .3em;color:var(--ink);text-wrap:balance}
+p{margin:0 0 1em;max-width:62ch}
+.center{text-align:center}
+.center p{margin-inline:auto}
+
+/* HERO */
+.hero{padding-block:56px 64px;text-align:center;position:relative}
+.arch{width:min(340px,82vw);aspect-ratio:3/4;max-width:100%;margin:28px auto 0;border-radius:999px 999px 6px 6px;border:1px solid var(--gold);padding:10px;position:relative}
+.arch .photo{border-radius:999px 999px 2px 2px}
+.names{font-family:var(--f-script);font-size:clamp(58px,16vw,96px);line-height:.95;margin:28px 0 0;font-weight:400}
+.names .amp{display:block;font-family:var(--f-display);font-style:italic;font-size:.38em;color:var(--gold);margin:.15em 0}
+.date-line{font-family:var(--f-label);letter-spacing:.3em;text-transform:uppercase;font-size:14px;margin-top:22px;display:flex;justify-content:center;gap:14px;align-items:center;flex-wrap:wrap}
+.date-line i{width:28px;height:1px;background:var(--gold);display:inline-block}
+
+/* FOTOS: van en la carpeta fotos/; si falta alguna se ve el degradado */
+.photo{position:relative;width:100%;height:100%;overflow:hidden;background:
+  radial-gradient(120% 80% at 30% 20%,#F6F2EC 0%,transparent 60%),
+  linear-gradient(160deg,var(--blush),#B9C2AE 70%,#8E9C86);
+  }
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* CUENTA REGRESIVA */
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:34px auto 0;max-width:520px;border-block:1px solid var(--ink)}
+.cd{padding:20px 4px 16px;text-align:center;border-left:1px solid var(--line)}
+.cd:first-child{border-left:0}
+.cd b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(38px,10vw,60px);line-height:1;font-variant-numeric:tabular-nums lining-nums}
+.cd span{font-family:var(--f-label);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.cd-done{font-family:var(--f-script);font-size:42px;margin-top:24px}
+
+/* CEREMONIA / RECEPCIÓN */
+.venues{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.venue{border:1px solid var(--line);padding:26px 22px;background:var(--paper-2);text-align:center;display:flex;flex-direction:column;gap:6px;min-width:0}
+.venue h3{font-family:var(--f-label);font-weight:400;letter-spacing:.22em;text-transform:uppercase;font-size:15px;margin:0}
+.venue .time{font-size:34px;font-style:italic;line-height:1.1;margin:6px 0}
+.venue .place{font-weight:500}
+.venue .addr{color:var(--ink-soft);font-size:15px;line-height:1.5}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;font-family:var(--f-label);letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:var(--paper);background:var(--ink);border:1px solid var(--ink);padding:13px 20px;text-decoration:none;cursor:pointer;margin-top:auto}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)}
+.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ITINERARIO */
+.timeline{list-style:none;padding:0;margin:30px auto 0;max-width:420px;position:relative}
+.timeline::before{content:"";position:absolute;left:84px;top:8px;bottom:8px;width:1px;background:var(--gold)}
+.timeline li{display:grid;grid-template-columns:70px 1fr;gap:30px;padding:12px 0;position:relative;text-align:left}
+.timeline li::after{content:"";position:absolute;left:80px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:1px solid var(--gold)}
+.timeline .t{font-family:var(--f-label);font-size:14px;letter-spacing:.08em;text-align:right;padding-top:4px;font-variant-numeric:tabular-nums}
+.timeline .e{font-size:19px}
+.timeline .e small{display:block;font-size:14px;color:var(--ink-soft)}
+
+/* DRESS CODE */
+.palette{display:flex;justify-content:center;gap:12px;margin:22px 0 10px;flex-wrap:wrap}
+.palette span{width:36px;height:36px;border-radius:50%;border:1px solid var(--line)}
+.note{font-size:15px;color:var(--ink-soft);font-style:italic}
+
+/* GALERÍA */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
+.gallery .g{aspect-ratio:3/4;max-width:100%}
+.gallery .g:nth-child(2){transform:translateY(22px)}
+.gallery .g:nth-child(1) .photo{border-radius:999px 999px 0 0}
+.gallery .g:nth-child(3) .photo{border-radius:999px 999px 0 0}
+
+/* REGALOS */
+.gifts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.gift{border-top:1px solid var(--ink);padding-top:16px;text-align:left;min-width:0}
+.gift h3{font-family:var(--f-label);font-weight:400;font-size:14px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 6px}
+.gift p{font-size:15px;color:var(--ink-soft);margin-bottom:12px}
+.copyrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.copyrow code{font-family:var(--f-label);font-size:15px;letter-spacing:.06em;background:var(--paper-2);padding:6px 10px;user-select:all;word-break:break-all}
+.copy{font-family:var(--f-label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;background:none;border:1px solid var(--ink);color:var(--ink);padding:6px 10px;cursor:pointer}
+.copy:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* RSVP */
+.rsvp-box{border:1px solid var(--gold);padding:34px 26px;margin-top:28px;background:var(--paper-2);text-align:left}
+.pass{text-align:center;margin-bottom:24px}
+.pass b{font-family:var(--f-display);font-size:54px;font-weight:400;line-height:1;display:block}
+form{display:grid;gap:18px}
+label{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.18em;font-size:12px;display:grid;gap:8px}
+input[type=text],select,textarea{font:inherit;font-size:17px;color:var(--ink);background:var(--paper);border:0;border-bottom:1px solid var(--ink);padding:10px 4px;border-radius:0;text-transform:none;letter-spacing:0;font-family:var(--f-display)}
+input[type=text]:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--gold);box-shadow:0 1px 0 var(--gold)}
+.choice{display:flex;gap:10px;flex-wrap:wrap}
+.choice label{display:flex;flex-direction:row;align-items:center;gap:8px;border:1px solid var(--ink);padding:12px 16px;cursor:pointer;flex:1 1 140px;justify-content:center;font-size:12px}
+.choice input{accent-color:var(--ink)}
+.choice label:has(input:checked){background:var(--ink);color:var(--paper)}
+.err{color:#8A3B2E;font-size:14px;min-height:1em;margin:0}
+.thanks{text-align:center}
+.thanks h3{font-family:var(--f-script);font-weight:400;font-size:48px;margin:0}
+
+footer{border-top:1px solid var(--line);padding-block:56px 72px;text-align:center}
+footer .names{font-size:54px;margin:0}
+footer .hash{font-family:var(--f-label);letter-spacing:.2em;font-size:13px;color:var(--gold);margin-top:10px}
+
+/* entrada */
+@media (prefers-reduced-motion:no-preference){
+  .hero > *{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+  .hero > :nth-child(2){animation-delay:.12s}
+  .hero > :nth-child(3){animation-delay:.24s}
+  .hero > :nth-child(4){animation-delay:.36s}
+  @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+}
+@media (max-width:520px){
+  section{padding-block:56px}
+  .venues,.gifts{grid-template-columns:1fr}
+  .cd span{font-size:9px;letter-spacing:.14em}
+  .gallery{gap:6px}
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div class="label">Nos casamos</div>
+    <div class="arch">
+      <div class="photo"><img src="boda.webp" alt="Valeria y Andrés"></div>
+    </div>
+    <h1 class="names">Valeria<span class="amp">y</span>Andrés</h1>
+    <div class="date-line"><i></i>Sábado 13 · Marzo · 2027<i></i></div>
+  </header>
+
+  <section class="center" id="cuenta">
+    <div class="label">Faltan</div>
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="cd"><b id="cd-d">000</b><span>Días</span></div>
+      <div class="cd"><b id="cd-h">00</b><span>Horas</span></div>
+      <div class="cd"><b id="cd-m">00</b><span>Minutos</span></div>
+      <div class="cd"><b id="cd-s">00</b><span>Segundos</span></div>
+    </div>
+    <div class="cd-done" id="cd-done" hidden>¡Hoy es el gran día!</div>
+  </section>
+
+  <section class="center">
+    <div class="label">Con la bendición de nuestros padres</div>
+    <h2>Nuestra historia</h2>
+    <p>Nos conocimos en una clase de cerámica en el centro de Querétaro y, ocho años y dos perros después, decidimos que el resto de la vida también la queremos compartir. Nada nos haría más felices que celebrarlo contigo.</p>
+    <p class="note">Rosa María Hernández y Jorge Ruiz · Patricia Salinas y Miguel Ortega</p>
+  </section>
+
+  <section class="center" id="lugar">
+    <div class="label">Dónde y cuándo</div>
+    <h2>El día</h2>
+    <div class="venues">
+      <article class="venue">
+        <h3>Ceremonia religiosa</h3>
+        <div class="time">5:00 pm</div>
+        <div class="place">Templo de Santa Rosa de Viterbo</div>
+        <div class="addr">Gral. Arteaga s/n, Centro Histórico, Santiago de Querétaro</div>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Templo+de+Santa+Rosa+de+Viterbo+Queretaro" target="_blank" rel="noopener">Ver mapa</a>
+      </article>
+      <article class="venue">
+        <h3>Recepción</h3>
+        <div class="time">7:00 pm</div>
+        <div class="place">Hacienda Los Arcos</div>
+        <div class="addr">Carretera a Huimilpan km 4, Querétaro</div>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hacienda+Queretaro" target="_blank" rel="noopener">Ver mapa</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="center">
+    <div class="label">Itinerario</div>
+    <h2>La noche</h2>
+    <ol class="timeline">
+      <li><span class="t">5:00</span><span class="e">Ceremonia<small>Santa Rosa de Viterbo</small></span></li>
+      <li><span class="t">7:00</span><span class="e">Cóctel de bienvenida<small>Patio de los arcos</small></span></li>
+      <li><span class="t">8:30</span><span class="e">Cena<small>Tres tiempos</small></span></li>
+      <li><span class="t">9:45</span><span class="e">Primer baile</span></li>
+      <li><span class="t">10:00</span><span class="e">¡A bailar!<small>Hasta las 2:00 am</small></span></li>
+    </ol>
+  </section>
+
+  <section class="center">
+    <div class="label">Código de vestimenta</div>
+    <h2>Formal</h2>
+    <p>Vestido largo y traje oscuro. Te sugerimos tonos tierra, olivo y rosa empolvado.</p>
+    <div class="palette" aria-label="Paleta sugerida">
+      <span style="background:#6E7B5B"></span><span style="background:#A9864E"></span><span style="background:#D9B8A8"></span><span style="background:#8C6A5A"></span><span style="background:#2E3B32"></span>
+    </div>
+    <p class="note">El blanco y el marfil son solo para la novia.</p>
+  </section>
+
+  <section class="center">
+    <div class="label">Momentos</div>
+    <h2>Nosotros</h2>
+    <div class="gallery">
+      <div class="g"><div class="photo"><img src="foto1.avif" alt=""></div></div>
+      <div class="g"><div class="photo"><img src="foto2.jpg" alt=""></div></div>
+      <div class="g"><div class="photo"><img src="foto3.jpg" alt=""></div></div>
+    </div>
+  </section>
+
+  <section class="center">
+    <div class="label">Mesa de regalos</div>
+    <h2>Regalos</h2>
+    <p>Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros:</p>
+    <div class="gifts">
+      <div class="gift">
+        <h3>Liverpool</h3>
+        <p>Evento número</p>
+        <div class="copyrow"><code id="liv">51234567</code><button class="copy" data-target="liv" type="button">Copiar</button></div>
+      </div>
+      <div class="gift">
+        <h3>Transferencia</h3>
+        <p>CLABE · a nombre de Valeria Ruiz</p>
+        <div class="copyrow"><code id="clabe">0123 4567 8901 2345 67</code><button class="copy" data-target="clabe" type="button">Copiar</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="center" id="rsvp">
+    <div class="label">Confirma antes del 13 de febrero</div>
+    <h2>¿Nos acompañas?</h2>
+    <div class="rsvp-box">
+      <div class="pass">
+        <div class="label">Pase para</div>
+        <b id="seats">2</b>
+        <span class="note">personas</span>
+      </div>
+      <form id="rsvp-form" novalidate>
+        <label for="r-name">Nombre de la familia o invitado
+          <input type="text" id="r-name" autocomplete="name" placeholder="Ej. Familia López">
+        </label>
+        <div class="choice" role="radiogroup" aria-label="Asistencia">
+          <label><input type="radio" name="att" value="si" id="r-yes"> Sí asistiré</label>
+          <label><input type="radio" name="att" value="no" id="r-no"> No podré ir</label>
+        </div>
+        <label for="r-count">¿Cuántos asistirán?
+          <select id="r-count"><option>1</option><option selected>2</option></select>
+        </label>
+        <label for="r-msg">Mensaje para los novios
+          <textarea id="r-msg" rows="3" placeholder="Opcional"></textarea>
+        </label>
+        <p class="err" id="r-err"></p>
+        <button class="btn" type="submit">Enviar confirmación</button>
+      </form>
+      <div class="thanks" id="thanks" hidden>
+        <h3>¡Gracias!</h3>
+        <p id="thanks-msg"></p>
+        <p class="note">Envíaselo a los novios por WhatsApp:</p>
+        <div class="copyrow" style="justify-content:center"><code id="wa-text"></code><button class="copy" data-target="wa-text" type="button">Copiar</button></div>
+        <p style="margin-top:14px"><a class="btn ghost" id="wa-link" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="names">V &amp; A</p>
+    <div class="hash">#ValeYAndresParaSiempre</div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  // --- Configuración del evento (lo único que cambia entre clientes) ---
+  const EVENT = new Date("2027-03-13T17:00:00-06:00");
+  const WA_NUMBER = "524421234567"; // número de los novios
+  const params = new URLSearchParams(location.search);
+  const seats = parseInt(params.get("pases"),10);
+  if(seats>0){
+    document.getElementById("seats").textContent = seats;
+    const sel = document.getElementById("r-count"); sel.innerHTML="";
+    for(let i=1;i<=seats;i++){const o=document.createElement("option");o.textContent=i;if(i===seats)o.selected=true;sel.appendChild(o);}
+  }
+  if(params.get("invitado")) document.getElementById("r-name").value = params.get("invitado");
+
+  // --- Cuenta regresiva ---
+  const el = id => document.getElementById(id);
+  const pad = (n,l=2) => String(n).padStart(l,"0");
+  function tick(){
+    let diff = EVENT - new Date();
+    if(diff<=0){ el("countdown").hidden=true; el("cd-done").hidden=false; return; }
+    const d=Math.floor(diff/864e5); diff%=864e5;
+    const h=Math.floor(diff/36e5); diff%=36e5;
+    const m=Math.floor(diff/6e4); const s=Math.floor((diff%6e4)/1e3);
+    el("cd-d").textContent=pad(d,3); el("cd-h").textContent=pad(h);
+    el("cd-m").textContent=pad(m); el("cd-s").textContent=pad(s);
+  }
+  tick(); setInterval(tick,1000);
+
+  // --- Fotos: si una imagen no existe, se oculta y queda el degradado ---
+  document.querySelectorAll(".photo img").forEach(img=>{
+    const hide=()=>{img.hidden=true;};
+    if(img.complete && img.naturalWidth===0) hide(); else img.addEventListener("error",hide);
+  });
+
+  // --- Copiar ---
+  document.querySelectorAll(".copy").forEach(b=>{
+    b.addEventListener("click",()=>{
+      const t=el(b.dataset.target);
+      const done=()=>{b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1600);};
+      const fallback=()=>{const s=getSelection(),rg=document.createRange();rg.selectNodeContents(t);s.removeAllRanges();s.addRange(rg);b.textContent="Selecciona y copia";};
+      try{navigator.clipboard.writeText(t.textContent).then(done,fallback);}catch(e){fallback();}
+    });
+  });
+
+  // --- Confirmación ---
+  el("rsvp-form").addEventListener("submit",e=>{
+    e.preventDefault();
+    const name=el("r-name").value.trim();
+    const att=document.querySelector('input[name="att"]:checked');
+    if(!name){el("r-err").textContent="Escribe tu nombre para que los novios sepan quién confirma.";el("r-name").focus();return;}
+    if(!att){el("r-err").textContent="Elige si asistirás o no.";return;}
+    el("r-err").textContent="";
+    const n=el("r-count").value, msg=el("r-msg").value.trim();
+    const yes=att.value==="si";
+    const text = yes
+      ? `Hola Vale y Andrés, ${name} confirma asistencia para ${n} persona${n==="1"?"":"s"} a su boda.${msg?" "+msg:""}`
+      : `Hola Vale y Andrés, ${name} no podrá asistir a su boda. ¡Muchas felicidades!${msg?" "+msg:""}`;
+    el("thanks-msg").textContent = yes ? `Te esperamos el 13 de marzo, ${name}.` : `Te vamos a extrañar, ${name}.`;
+    el("wa-text").textContent=text;
+    el("wa-link").href=`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    el("rsvp-form").hidden=true; el("thanks").hidden=false;
+  });
+})();
+</script>
+</body>
+</html>
